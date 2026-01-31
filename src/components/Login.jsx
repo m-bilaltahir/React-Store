@@ -1,12 +1,10 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { useState } from "react";
-import Signup from "./Signup";
 import { useNavigate,NavLink } from "react-router-dom";
-
+import { useSelector } from "react-redux";
 function Login() {
-// const [login, setlogin] = useState([])
-
+const navigate=useNavigate();
+  const loginchk=useSelector((state)=>state.userData.userData)
   const {
     register,
     handleSubmit,
@@ -14,25 +12,24 @@ function Login() {
     formState: { errors, isSubmitting },
   } = useForm();
 
-  //Check user and password
-  // const handleLogin=(data)=>{
-  //    const user=login.find((element)=>{return data.username===element.username&&data.password===element.password} );
-  //   return user
-  // }
-
-  const onSubmit = (data) =>{ 
-    // setlogin([...login,data])
-    // if(handleLogin(data)){
-    //   alert("Login successfull")
-    // }else{
-    //   alert("Login unsuccessfull")
-    // }
-    // console.log(login);
-    console.log(data);
-
-    const navigate=useNavigate();
+//  Check user and password
+  const handleLogin=(data)=>{
+     const user=loginchk.find((np)=>np.Email===data.Email&&np.Password===data.Password)
+    return user
   }
 
+  const onSubmit = (data) =>{ 
+    if(handleLogin(data)){
+      alert('succussfully Login')
+      navigate("./Ecommerce")
+    }
+    else{
+      alert("Wrong Username or password")
+    }
+
+  }
+
+    
   return (
     // Whole window
     <div className="flex items-center justify-center h-screen w-screen  bg-cover bg-bottom bg-[url('./background.png')]">

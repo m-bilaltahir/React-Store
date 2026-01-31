@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { useState } from "react";
 import { useNavigate,NavLink } from "react-router-dom";
-
+import { useDispatch,useSelector } from "react-redux";
+import { addUserData } from "../redux/userDataSlice";
 function Signup() {
 
-const[userdata,setuserdata]=useState([])
-  
+const dispatch=useDispatch();
+const newdata=useSelector((state)=>state.userData.userData)
+
+const navigate=useNavigate();
 const {
     register,
     handleSubmit,
@@ -15,9 +17,14 @@ const {
   } = useForm();
 
   const onSubmit = (data) =>{
-    setuserdata([...userdata,data]) 
-    console.log(data);
+    dispatch(addUserData(data))
+    navigate("/")
 }
+useEffect(() => {
+  console.log(newdata);
+  
+}, [newdata])
+
 
   return (
     // Whole Window
@@ -76,7 +83,7 @@ const {
             {...register("Password", {
               required: { value: true, message: "Password is required" },
               minLength: {
-                value: 5,
+                value: 8,
                 message: "Password is too short",
               },
               pattern: {
@@ -100,7 +107,7 @@ const {
           className="text-lg font-bold bg-blue-500 border-blue-950 border shadow-blue-950  hover:shadow-2xl rounded-xl p-2 cursor-pointer"
           type="submit"
           disabled={isSubmitting}
-          > {isSubmitting?"Loading...":"Sign Up"}</button>
+          > Sign Up</button>
         </form>
 
         <div className="text-blue-950 text-[12px]  mt-9">
