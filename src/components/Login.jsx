@@ -41,7 +41,7 @@ const navigate=useNavigate();
             {...register("Email", {
               required: { value: true, message: "Email is required" },
               minLength: { value: 5, message: "Email is too short" },
-              maxLength: { value: 20, message: "Email is too long" },
+              maxLength: { value: 35, message: "Email is too long" },
               pattern: { value: /[@]/, message: "Invalid Email" },
             })}
             className="border-blue-950 border shadow-blue-950 shadow hover:shadow-2xl rounded-xl p-2"

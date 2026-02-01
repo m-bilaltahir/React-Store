@@ -1,11 +1,12 @@
 import React from 'react'
+import Navbar from './EcommerceComp/Navbar'
 
-function Ecommerce() {
+const Ecommerce = () => {
   return (
     <div>
-      Ecommerce Store
+      <Navbar/>
     </div>
   )
 }
 
-export default Ecommerce;
+export default Ecommerce
