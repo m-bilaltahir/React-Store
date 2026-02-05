@@ -7,7 +7,7 @@ const Navbar = () => {
         <img src="./Images/Cart.png" alt="" className="w-14 h-14 md:w-20 md:h-20" />
         <h2 className="font-bold text-3xl">React Store</h2>
       </div>
-      <div className="hidden md:flex bg-white opacity-70 w-lg h-12 overflow-hidden rounded-3xl shadow ">
+      <div className="hidden md:flex bg-white opacity-70 w-lg h-12 overflow-hidden rounded-3xl shadow hover:scale-102 transition-all duration-300 ">
         <select name="" id="" className="text-gray-700 h-12 bg-transparent outline-none border-gray-600 border-r-2 py-3 pl-3">
           <option value="" >Choose</option>
           <option value="">Men</option>

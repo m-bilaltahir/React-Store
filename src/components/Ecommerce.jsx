@@ -1,10 +1,13 @@
 import React from 'react'
 import Navbar from './EcommerceComp/Navbar'
-
+import Footer from './EcommerceComp/Footer'
+import Main from './EcommerceComp/Main'
 const Ecommerce = () => {
   return (
-    <div>
+    <div >
       <Navbar/>
+      <Main/>
+      <Footer/>
     </div>
   )
 }

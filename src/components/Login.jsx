@@ -32,7 +32,7 @@ const navigate=useNavigate();
     
   return (
     // Whole window
-    <div className="flex items-center justify-center h-screen w-screen  bg-cover bg-bottom bg-[url('./background.png')]">
+    <div className="flex items-center justify-center h-screen w-screen  bg-cover bg-bottom bg-[url('./background.png')] ">
       <div className="bg-white opacity-70 p-15 rounded-3xl shadow-2xl w-md  ">
         <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-5">
           <h1 className="text-3xl font-bold">React Store</h1>
