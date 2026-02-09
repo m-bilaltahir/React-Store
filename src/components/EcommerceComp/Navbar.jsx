@@ -1,6 +1,7 @@
 import React from "react";
-
+import { useSelector } from "react-redux";
 const Navbar = () => {
+  const value=useSelector((state)=>state.userCart.value)
   return (
     <nav className="flex w-full h-20 bg-blue-400 items-center justify-between px-6 md:px-9 ">
       <div className=" flex gap-4 items-center">
@@ -20,6 +21,7 @@ const Navbar = () => {
       <div className="flex gap-8">
         <button className="text-gray-600 font-semibold text-xl hover:underline cursor-pointer ">Log Out</button>
         <img src="./Images/Icon.png" alt="" className="w-8 h-8 rounded-full cursor-pointer" />
+        <span className="w-7 h-7 bg-red-600 rounded-xl text-center">{value}</span>
       </div>
     </nav>
   );

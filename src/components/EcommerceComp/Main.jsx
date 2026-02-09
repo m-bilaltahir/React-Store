@@ -1,6 +1,8 @@
 import React from "react";
-
+import { useDispatch } from "react-redux";
+import { increment } from "../../redux/userCartSlice";
 const Main = () => {
+  const Dispatch=useDispatch();
   const products = [
     {
       id: 10,
@@ -75,9 +77,11 @@ const Main = () => {
       image: "/Images/box9_img.jpeg",
     },
   ];
+  
   return (
     <main className="bg-linear-to-b from-blue-500 to-blue-100 ">
-      <div className="w-full h-30 sm:h-50 md:h-70 bg-cover bg-top bg-[url('/Images/hero_image.jpg')]"></div>
+      
+      <div className="w-full h-40 sm:h-56 md:h-72 bg-cover bg-top bg-[url('/Images/hero_image.jpg')]"></div>
 
 
       <div className=" max-w-7xl mx-auto px-12 py-8">
@@ -86,7 +90,7 @@ const Main = () => {
             
             <div
               key={product.id}
-              className="  border-black border-3 rounded-xl shadow hover:shadow-xl transition overflow-hidden flex flex-col"
+              className="bg-white border border-black  rounded-xl shadow-sm hover:shadow-xl transition duration-300 overflow-hidden flex flex-col"
             >
               <img
                 src={product.image}
@@ -95,8 +99,10 @@ const Main = () => {
               />
               <div className="bg-blue-100 pt-1 px-3 flex flex-col justify-between flex-1">
                 <h1 className="text-lg font-semibold">{product.name}</h1>
-                <p className="text-gray-600">{product.price}</p>
-                <button className=" bg-black  hover:bg-gray-500  text-white w-50 mt-4 mb-7 px-2 py-2 border-2 rounded-2xl self-center mx-auto">
+                <p className="text-gray-700 font-medium">{product.price}</p>
+                <button 
+                onClick={()=>Dispatch(increment())}
+                className="w-50 mt-4 mb-7 px-2 py-2 bg-black  hover:bg-gray-500  text-white  border-2 rounded-2xl self-center mx-auto">
                   Add to cart
                 </button>
               </div>
